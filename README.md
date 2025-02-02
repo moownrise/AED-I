@@ -15,7 +15,7 @@ e a main.
 obs*: resumidamente.
 
 Ainda tem coisas no código que eu quero melhorar, como o free(buffer) que tive uma crise existecial por ter feito do jeito que fiz 
-(fiz assim porque já fiz outros códigos desse jeito antes), agora pra dar o free no buffer o usuário vai precisar escolher a opção 5, 
+(fiz assim porque já fiz outros códigos desse jeito antes), agora pra dar o free no buffer o usuário vai precisar escolher a opção 5 (Sair, que é a opção que deve ser escolhida mesmo para sair do programa),
 caso contrário não vai liberar, mas com medo de destruir o que está pronto eu vou mandar essa versão.
 
 ==========================================================================================================================================
