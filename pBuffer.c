@@ -29,7 +29,7 @@ void *pBuffer;
 void adicionar_pessoa(void **pBuffer) {
     *pBuffer = realloc(*pBuffer, sizeof(int) + (*((int *)(*pBuffer)) + 1) * TAM_PESSOA);
     if (*pBuffer == NULL) {
-        printf("Erro ao alocar memória!\n");
+        printf("Erro ao alocar memoria!\n");
         exit(1);
     }
 
@@ -72,7 +72,7 @@ void remover_pessoa(void **pBuffer) {
         }
         pPessoa = (char *)pPessoa + TAM_PESSOA;
     }
-    printf("Pessoa não encontrada.\n");
+    printf("Pessoa nao encontrada.\n");
 }
 
 void buscar_pessoa(void *pBuffer) {
@@ -97,7 +97,7 @@ void buscar_pessoa(void *pBuffer) {
         }
         pPessoa = (char *)pPessoa + TAM_PESSOA;
     }
-    printf("Pessoa não encontrada.\n");
+    printf("Pessoa nao encontrada.\n");
 }
 
 void listar_pessoas(void *pBuffer) {
@@ -122,7 +122,7 @@ void listar_pessoas(void *pBuffer) {
 int main() {
     pBuffer = malloc(sizeof(int));
     if (pBuffer == NULL) {
-        printf("Erro ao alocar memória!\n");
+        printf("Erro ao alocar memoria!\n");
         return 1;
     }
     *((int *)pBuffer) = 0;
@@ -136,7 +136,7 @@ int main() {
             case 3: buscar_pessoa(pBuffer); break;
             case 4: listar_pessoas(pBuffer); break;
             case 5: free(pBuffer); return 0;
-            default: printf("Opção inválida!\n");
+            default: printf("Opção invalida!\n");
         }
     } while (1);
 }
