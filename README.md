@@ -6,17 +6,33 @@
 
 Me chamo Silvana, sou da M1, esse é o trabalho da Agenda pBuffer.
 
-Esse trabalho foi um desafio, e mesmo depois de passar dias e horas fazendo eu ainda não tenho certeza do resultado, mas consegui finalizar.
-
 A função que mais tive dificuldades foi a função listar_pessoas, tanto que tive que refazer muitas coisas por causa dela, era a unica que 
 estava me dando problemas depois de um longo tempo fazendo o código. 
-Eu modifiquei o código muitas vezes até chegar no resultado final. As partes que mais modifiquei foi a função inserir_pessoa, listar_pessoas 
-e a main. 
-obs*: resumidamente.
 
-Ainda tem coisas no código que eu quero melhorar, como o free(buffer) que tive uma crise existecial por ter feito do jeito que fiz 
-(fiz assim porque já fiz outros códigos desse jeito antes), agora pra dar o free no buffer o usuário vai precisar escolher a opção 5 (Sair, que é a opção que deve ser escolhida mesmo para sair do programa),
-caso contrário não vai liberar, mas com medo de destruir o que está pronto eu vou mandar essa versão.
+Eu modifiquei o código muitas vezes até chegar no resultado final. As partes que mais modifiquei foi a função inserir_pessoa, listar_pessoas e a main. 
+
+>>>>> Testes realizados <<<<<
+
+Registros:
+- O programa adicionou o primeiro registro com sucesso.
+- O programa adicionou vários registros consecutivos (2, 3, 5), todos foram armazenados corretamente.
+- 
+Nome:
+- O programa adicionou registros com nome curto.
+- O programa adicionou registros de nome com espaços.
+- O programa não adicionou nome longo demais (com mais de 50 caractere)
+- O programa adicionou nome com caractere especial.
+  
+Idade:
+- O programa adicionou idades em números positivos.
+- O programa adicionou idades emm números negativos. 
+
+Email:
+- O programa não adicionou email longo demais (com mais de 50 caractere)
+- O programa adicionou email com espaços.
+- O programa adicionou registros de email curto.
+
+Vou adicionar mais testes logo logo:
 
 ==========================================================================================================================================
 
