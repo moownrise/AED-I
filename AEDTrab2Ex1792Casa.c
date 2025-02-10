@@ -23,7 +23,7 @@ double calc_delta(int pass, int total) {
 
 /*
 ===========================================================================
-Função de comparação para a max-heap (ordenar pela maior melhoria)
+Função de comparação para a maxheap: ordenar pela maior melhoria
 ===========================================================================
 */
 int compare(const void *a, const void *b) {
