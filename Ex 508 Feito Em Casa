@@ -1,0 +1,68 @@
+#define TAM_MAX 10000
+
+typedef struct TreeNode{
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+};
+
+// estrutura para armazenar as somas e suas frequências
+typedef struct {
+    int soma;
+    int frequencia;
+} SomaFreq;
+
+SomaFreq mapaFreq[TAM_MAX];
+int tamanhoMapa = 0;
+int maiorFreq = 0;
+
+// função para adicionar uma soma ao mapa de frequência
+void adicionarSoma(int soma) {
+    for (int i = 0; i < tamanhoMapa; i++) {
+        if (mapaFreq[i].soma == soma) {
+            mapaFreq[i].frequencia++;
+            if (mapaFreq[i].frequencia > maiorFreq) {
+                maiorFreq = mapaFreq[i].frequencia;
+            }
+            return;
+        }
+    }
+    mapaFreq[tamanhoMapa].soma = soma;
+    mapaFreq[tamanhoMapa].frequencia = 1;
+    if (maiorFreq < 1) {
+        maiorFreq = 1;
+    }
+    tamanhoMapa++;
+}
+
+// função para calcular a soma das subárvores
+int somaSubarvore(struct TreeNode* raiz) {
+    if (raiz == NULL) return 0;
+
+    int somaEsq = somaSubarvore(raiz->left);
+    int somaDir = somaSubarvore(raiz->right);
+    int somaTotal = raiz->val + somaEsq + somaDir;
+
+    adicionarSoma(somaTotal);
+    return somaTotal;
+}
+
+// função principal para encontrar as somas mais frequentes
+int* findFrequentTreeSum(struct TreeNode* root, int* returnSize) {
+    tamanhoMapa = 0;
+    maiorFreq = 0;
+
+    somaSubarvore(root);
+
+    int* resultado = (int*)malloc(sizeof(int) * tamanhoMapa);
+    int contador = 0;
+
+    for (int i = 0; i < tamanhoMapa; i++) {
+        if (mapaFreq[i].frequencia == maiorFreq) {
+            resultado[contador++] = mapaFreq[i].soma;
+        }
+    }
+
+    *returnSize = contador;
+    return resultado;
+}
