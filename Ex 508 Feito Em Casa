@@ -1,12 +1,21 @@
 #define TAM_MAX 10000
 
+/*
+===========================================================================
+Estrutura da árvore binária
+===========================================================================
+*/
 typedef struct TreeNode{
     int val;
     struct TreeNode *left;
     struct TreeNode *right;
 };
 
-// estrutura para armazenar as somas e suas frequências
+/*
+===========================================================================
+Estrutura para armazenar as somas e suas frequências
+===========================================================================
+*/
 typedef struct {
     int soma;
     int frequencia;
@@ -16,7 +25,11 @@ SomaFreq mapaFreq[TAM_MAX];
 int tamanhoMapa = 0;
 int maiorFreq = 0;
 
-// função para adicionar uma soma ao mapa de frequência
+/*
+===========================================================================
+Função para adicionar uma soma ao mapa de frequência
+===========================================================================
+*/
 void adicionarSoma(int soma) {
     for (int i = 0; i < tamanhoMapa; i++) {
         if (mapaFreq[i].soma == soma) {
@@ -35,7 +48,11 @@ void adicionarSoma(int soma) {
     tamanhoMapa++;
 }
 
-// função para calcular a soma das subárvores
+/*
+===========================================================================
+Função para calcular a soma das subárvores
+===========================================================================
+*/
 int somaSubarvore(struct TreeNode* raiz) {
     if (raiz == NULL) return 0;
 
@@ -47,7 +64,11 @@ int somaSubarvore(struct TreeNode* raiz) {
     return somaTotal;
 }
 
-// função principal para encontrar as somas mais frequentes
+/*
+===========================================================================
+Função principal para encontrar as somas mais frequentes
+===========================================================================
+*/
 int* findFrequentTreeSum(struct TreeNode* root, int* returnSize) {
     tamanhoMapa = 0;
     maiorFreq = 0;
