@@ -1,0 +1,40 @@
+// armazenando os trabalhos...
+typedef struct {
+    int dificuldade;
+    int lucro;
+} Trabalho;
+  
+// Função de comparação para ordenar trabalhos por dificuldade;
+int compararTrabalhos(const void* a, const void *b){
+    return ((Trabalho*)a)->dificuldade - ((Trabalho*)b)->dificuldade;
+}
+
+// função de comparação, trabalhadores x habilidades
+int compararInt(const void *a, const void *b){
+    return (*(int*)a - *(int*)b); 
+}
+
+int maxProfitAssignment(int* difficulty,int difficultySize, int* profit,int profitSize,int* worker,int workerSize){
+    Trabalho trabalhos[difficultySize];
+    for (int i = 0; i < difficultySize; i++) {
+        trabalhos[i].dificuldade = difficulty[i];
+        trabalhos[i].lucro = profit[i];
+    }
+
+    qsort(trabalhos, difficultySize, sizeof(Trabalho), compararTrabalhos);
+    qsort(worker, workerSize, sizeof(int), compararInt);
+    
+    int lucro_maximo = 0, melhor = 0, i = 0;
+    
+    for (int j = 0; j < workerSize; j++) {
+        while (i < difficultySize && trabalhos[i].dificuldade <= worker[j]) {
+            if (trabalhos[i].profit > melhor) {
+                melhor = trabalhos[i].profit;
+            }
+            i++;
+        }
+        lucro_maximo += melhor;
+    }
+    
+    return lucro_maximo;
+}
